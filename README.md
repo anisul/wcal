@@ -1,4 +1,4 @@
-# site-monitor
+# wcal
 Application to calculate wage of employee following certain criteria.
 
 
