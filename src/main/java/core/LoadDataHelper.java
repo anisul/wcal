@@ -17,6 +17,6 @@ public class LoadDataHelper extends AbstractHelper {
     @Override
     protected void executeHelper() {
         LoadDataOutput output = (LoadDataOutput) this.output;
-        output.setEntryList(dao.getExcelEntries(input.getStartDate(), input.getEndDate()));
+        output.setEntryList(dao.getExcelEntries());
     }
 }

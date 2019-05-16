@@ -1,13 +1,13 @@
 package domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Entry {
     String personName;
     long id;
-    Date entryDate;
-    Date startTime;
-    Date endTime;
+    LocalDateTime entryDate;
+    LocalDateTime startTime;
+    LocalDateTime endTime;
 
     public String getPersonName() {
         return personName;
@@ -25,27 +25,27 @@ public class Entry {
         this.id = id;
     }
 
-    public Date getEntryDate() {
+    public LocalDateTime getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDateTime entryDate) {
         this.entryDate = entryDate;
     }
 
-    public Date getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 }

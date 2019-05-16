@@ -12,7 +12,8 @@ public class AppUtil {
     public static final double HOURLY_WAGE_RATE = 3.75;
     public static final double EVENING_WAGE_RATE = 1.15;
 
-    public static Date convertStringToDate(String input) {
+    public static LocalDateTime convertStringToLocalDateTime(String input) {
+        ZoneId zoneId = ZoneId.of("America/Montreal");
         Date output = new Date();
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
@@ -21,7 +22,20 @@ public class AppUtil {
             e.printStackTrace();
         }
 
-        return output;
+        return Instant.ofEpochMilli(output.getTime()).atZone(zoneId).toLocalDateTime();
+    }
+
+    public static LocalDateTime convertStringToLocalDateTime(LocalDateTime date, String time, boolean isNextDay) {
+        String[] splits = time.split(":");
+
+        if (isNextDay) {
+            date.plusDays(1);
+        }
+
+        LocalDateTime t1 = date.plusHours(Long.parseLong(splits[0]));
+        LocalDateTime t2 = t1.plusMinutes(Long.parseLong(splits[1]));
+
+        return t2;
     }
 
     public static BigDecimal calculateWage(LocalDateTime startTime, LocalDateTime endTime) {
@@ -88,4 +102,5 @@ public class AppUtil {
                 ? endTime : singleIntervalEnd;
         return Duration.between(overlapStart, overlapEnd);
     }
+
 }
